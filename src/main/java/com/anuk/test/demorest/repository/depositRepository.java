@@ -102,9 +102,12 @@ public class depositRepository {
     //this code is having some issues dai...
     public boolean checker(String p) throws SQLException {
 
-        String sql = "select code from deposit where code=" + p;
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(sql);
+        String sql = "select code from deposit where code=?";
+        PreparedStatement st = con.prepareStatement(sql);
+         st.setString(1, p);
+        ResultSet rs = st.executeQuery();
+        
+        
         if (rs.getRow()>0) {
             return true;
         } else {
