@@ -99,7 +99,7 @@ public class depositRepository {
     }
 
    
-    //this code is having some issues dai...
+  
     public boolean checker(String p) throws SQLException {
 
         String sql = "select code from deposit where code=?";
